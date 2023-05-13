@@ -222,10 +222,7 @@ function getCocktailAPI(drink) {
         <!--This is where strInsructions is fetched from drinks object and displayed-->
           <p "is-3">${data.drinks[0].strInstructions}</p>
           
-          <label class="checkbox">
-  <input type="checkbox" id="drink-checkbox">
-  Save this cocktail
-</label>
+          
       </div>
       </div>
     </div>`
