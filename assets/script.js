@@ -11,16 +11,8 @@ const api = "c90b5488ed6ad2675575883e578f5209"
 
 var city  // To be used in event listener.
 
-// Array is created holding cocktails appropriate for hot weather.
 
-$("#submitButton").on("click", function (event) {
-  event.preventDefault();
-  city = $("#cityInput").val();
-  console.log(city);
-  getLatLong(city);
-});
-
-function getLatLong(city) {
+function Long(city) {
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}&units=imperial`
   )
@@ -28,25 +20,31 @@ function getLatLong(city) {
       return response.json();
     })
     .then(function (data) {
-      console.log("Weather API:",apiResults);
-      let lat = apiResults.coord.lat;
-      let lon = apiResults.coord.lon;
+      console.log("Weather API:",data);
+      let lat = data.coord.lat;
+      let lon = data.coord.lon;
       var html =
       `<div class="card" style="width:10rem">
         <div class="card-body">
-          <h5 class="card-title">${city}
-            <img src="http://openweathermap.org/img/wn/${apiResults.weather[0].icon}@2x.png" class="card-img-top" alt="...">
-          </h5>
-            <p class="card-text">Temp: ${apiResults.main.temp}</p>
-            <p class="card-text">Humidity: ${apiResults.main.humidity}</p>
-            <p class="card-text">Windspeed: ${apiResults.wind.speed}</p>
-            <p class="card-text">Description: ${apiResults.weather[0].description}</p>
+          <h5 class="card-title">${city}</h5>
+            <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" class="card-img-top" alt="...">
+            <p class="card-text">Temp: ${data.main.temp}</p>
+            <p class="card-text">Humidity: ${data.main.humidity}</p>
+            <p class="card-text">Windspeed: ${data.wind.speed}</p>
+            <p class="card-text">Description: ${data.weather[0].description}</p>
         </div>
       </div>`
-      document.getElementById("#weatherHeader").innerHTML = html
-      getFiveDayForcast(lat,lon,city)
+      document.getElementById("weatherHere").innerHTML = html;
+   
       // TODO pass function that will use conditions to choose drink based on weather
     });
+    function handleSubmit(event) {
+      event.preventDefault();
+      let city = document.getElementById("searchInput").value;
+      getLatLong(city);
+    }
+    
+    document.getElementById("submitButton").addEventListener("click", handleSubmit);
 }
 // TODO: see what the current weather is (know the keywords the weather API uses)
 // TODO: display the weather conditions for that city
@@ -132,7 +130,7 @@ function getDrink(city) {
 
       if (apiResults.main.temp > 79) {
 
-        drink = hotWeatherCocktails[Math.floor(Math.random() * hotWeatherCocktails.length)]
+        drink = sunnyCocktails[Math.floor(Math.random() * sunnyCocktails.length)]
 
       } else if (apiResults.main.temp > 49) {
 
@@ -195,6 +193,7 @@ function getCocktailAPI(drink) {
     .then((data) => {
       console.log("API", data);
       var html = `<div id="drinkCard" class="card">
+      <p class="title is-5">${data.drinks[0].strDrink}</p>
 
       <div class="card-image">
         <figure class="image is-4by3">
@@ -207,7 +206,7 @@ function getCocktailAPI(drink) {
           <figure class="image is-48x48"></figure>
           <div class="media-content">
           <!--Display drink name from fetched drinks object-->
-            <p class="title is-5">${data.drinks[0].strDrink}</p>
+           
 
             <!--Call getIngredients() function to process the ingredients from the fetched drink object and display them--!>
 
@@ -222,6 +221,11 @@ function getCocktailAPI(drink) {
         <div class="content">
         <!--This is where strInsructions is fetched from drinks object and displayed-->
           <p "is-3">${data.drinks[0].strInstructions}</p>
+          
+          <label class="checkbox">
+  <input type="checkbox" id="drink-checkbox">
+  Save this cocktail
+</label>
       </div>
       </div>
     </div>`
@@ -261,36 +265,16 @@ function getCocktailAPI(drink) {
     }
     return ingredients;
     
-  //       `<div class="content" id="showNot">
-  //         <a href="#">Ingredients: d</a> <a href="#">#responsive</a>
-  //     </div>
-  //     </div>
-  //   </div>;
-  //     document.getElementById("cocktailChoice").innerHTML = html;
-  //   })
-  //   .catch((err) => {
-  //     console.error(err);
-  //   });`
-
-  // function getIngredients(drink) {
-  //   var ingredients = "";
-  //   for (var i = 0; i < 15; i++) {
-  //     var ingredientName = drink["strIngredient" + (i + 1)];
-  //     if (!ingredientName) {
-  //       break;
-  //     }
-  //     var measure = drink["strMeasure" + (i + 1)];
-  //     ingredients += <li class="subtitle is-6"> ${ingredientName} ${measure} </li>;
+  
     }
+    
 
   }
+ 
 }
 
 
 
 
-// var requestUrl = 'www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita';
 
-// $.get(requestUrl, function(data){
-//   console.log(data);
-//   console.log
+

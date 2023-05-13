@@ -1,20 +1,66 @@
 body {
-  background-color: rgb(92, 225, 230) !important;
+  background-color:#393E46 !important;
   height: 100vh;
 }
-.hero-body {
-  background-color: rgb(92, 225, 230);
-}
-.hero.is-warning {
-  background-color: rgb(92, 225, 230);
-  align-items: center;
+
+header{
+  background-color: black;
 }
 .hero-body {
-  padding: 10px;
-  padding-bottom: 20px;
+  color: black;
+  background-color:rgb(34, 40, 49);
+  height: 330px;
+  padding: 3rem;
+ overflow: hidden;
+  
+}
+.hero-header{
+margin-top: -120px;
+border: 2px solid rgb(255, 211, 105);
+padding:50px;
+font-family: 'STIX Two Text';
+font-size: 2rem;
+font-weight: 700;
+color: white;
+align-items: center;
+margin-right: 60px;
+display: flex;
+justify-content: center;
+overflow: hidden;
+ 
+}
+
+
+.subtitle{
+  margin-top: 10px;
+  font-family: 'STIX Two Text';
+  font-style: italic;
+}
+.wine{
+  width:150px;
+}
+.clouds{
+  width:180px;
+  margin-top: 30px;
+  margin-right: 100px;
+  
 }
 .field.has-addons{
   justify-content: center;
+  margin-top: 30px;
+  
+}
+
+#cityInput{
+  width: 350px;
+}
+
+#submitButton{
+  background-color: rgb(76, 0, 39);
+  color:rgb(255, 211, 105);
+  margin-left: 20px;
+  border-radius:25px;
+
 }
 .weatherHeader {
   border: 2px solid;
@@ -29,15 +75,15 @@ body {
   height: 20%;
 }
 .weatherList {
-  border: 2px solid;
+  border: 2px rgb(255, 211, 105) solid;
   height: 60%;
   border-radius: 0px 0px 10px 10px;
-  background-color: rgb(73, 143, 209) !important;
+ 
+}
+.glow{
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
 }
 
-.tempIcons {
-  background-color: rgb(73, 143, 209) !important;
-}
 
 .control {
   align-content: center;
@@ -58,12 +104,12 @@ body {
   justify-content: center !important;
   align-items: center !important;
 }
-.musicCard {
+.cocktailCard {
   margin-top: 100px;
-  height: fit-content;
+  height: 50vh;
+  width: 40vw;
   justify-content: center;
   align-items: center;
-  width: 40vw;
   border-radius: 20px;
 }
 
@@ -84,5 +130,6 @@ body {
 }
 
 .columns.is-variable.is-8-widescreen{
-  background-color: rgb(92, 225, 230);
+  background-color: #393E46 ;
 }
+

@@ -12,16 +12,23 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-      <section class="hero is-warning">
-        <img class="logo" src="assets/Blue Minimalist Bar & Cafe Logo.png"><img>
+      <section class="hero is-medium is-link">
         <div class="hero-body">
-          <p style=text-align:center; class="title">
+          <p class="hero-header">
+            <img  class="clouds" src="./assets/clouds.png">
+            Cloudy with a Chance of a Cocktails
+            <img class="wine" src="./assets/wine.png">
           </p>
-          <p class="subtitle">Find the perfect drink no matter the day!</p>
+          <p class="subtitle">
+            Just search your city and we'll suggest you the perfect drink
+          </p>
         </div>
       </section>
     </div>
@@ -31,24 +38,31 @@
         <input class="input" id="cityInput" type="text" placeholder="City">
       </div>
       <div class="control">
-        <button id="submitButton" class="button is-primary ">Submit</button>
+        <button id="submitButton" class="button is-primary">
+          <span class="glow">Submit</span>
+        </button>
       </div>
     </div>
+    <div>
+      <div class="card-container"></div>
     <div class="columns is-variable is-8-widescreen">
       <div class="weatherCard box column">
-        <h2 class="weatherHeader">City Weather</h2>
+        <h2 id="weatherHere">City Weather</h2>
         <!-- <input class="input" type="text" placeholder="Enter a City:"> -->
         <div id="#html" class="box weatherList">
         </div>
       </div>
-      <div class="box column " id="cocktailChoice">
-        <h2 class="musicHeader">Your Cocktail Will Appear Here</h2>
-      <div class="musicCard box column" id="cocktailChoice">
-        <div>
-          <ul></ul>
+      <div class="box column" id="cocktailChoice">
+        <h2 class="CocktailHeader">Your Cocktail Will Appear Here</h2>
+      <div class="cocktailCard box column" id="cocktailChoice">
         </div>
       </div>
+      </div>
+      <div>
+     
+      </div>
     </div>
+    
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./assets/script.js"></script>
   </body>
